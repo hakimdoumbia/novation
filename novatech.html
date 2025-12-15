@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVATION - Redessinons l'avenir</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --off-white: #f8f9fa;
+            --off-black: #121212;
+            --dark-bg: #1a1a1a;
+            --accent: #000000;
+            --text-dark: #333333;
+            --text-light: #e8e8e8;
+            --text-lighter: #f0f0f0;
+            --card-bg: #ffffff;
+            --card-bg-dark: #242424;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--off-white);
+            transition: var(--transition);
+        }
+
+        body.dark-mode {
+            background-color: var(--off-black);
+            color: var(--text-light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        body.dark-mode header {
+            background-color: var(--dark-bg);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        body.dark-mode .logo {
+            color: var(--text-lighter);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        body.dark-mode .nav-links a {
+            color: var(--text-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        body.dark-mode .nav-links a:hover {
+            color: var(--text-lighter);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        body.dark-mode .nav-links a::after {
+            background: var(--text-lighter);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-toggle, .theme-toggle {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .lang-toggle, 
+        body.dark-mode .theme-toggle {
+            border-color: #555;
+            color: var(--text-light);
+        }
+
+        .lang-toggle:hover, .theme-toggle:hover {
+            background-color: #f0f0f0;
+        }
+
+        body.dark-mode .lang-toggle:hover,
+        body.dark-mode .theme-toggle:hover {
+            background-color: #2a2a2a;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            background-color: var(--card-bg);
+            margin-top: 80px;
+            border-radius: 0 0 30px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .hero {
+            background-color: var(--dark-bg);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 70%);
+            top: -150px;
+            right: -150px;
+        }
+
+        body.dark-mode .hero::before {
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        body.dark-mode .hero-subtitle {
+            color: var(--text-light);
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--accent);
+            line-height: 1.1;
+        }
+
+        body.dark-mode .hero-title {
+            color: var(--text-lighter);
+        }
+
+        .hero-slogan {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        body.dark-mode .hero-slogan {
+            color: var(--text-light);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .btn-primary:hover {
+            background-color: #444;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        body.dark-mode .btn-secondary {
+            color: var(--text-lighter);
+            border-color: var(--text-lighter);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark-mode .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--accent);
+            position: relative;
+        }
+
+        body.dark-mode .section-title {
+            color: var(--text-lighter);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        body.dark-mode .section-title::after {
+            background-color: var(--text-lighter);
+        }
+
+        /* About Section */
+        .about-intro {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .about-intro {
+            color: var(--text-light);
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .mission-card {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .mission-card {
+            background-color: var(--card-bg-dark);
+            box-shadow: var(--shadow-dark);
+            color: var(--text-light);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .mission-card h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        body.dark-mode .mission-card h3 {
+            color: var(--text-lighter);
+        }
+
+        .mission-card h3 i {
+            font-size: 24px;
+        }
+
+        .mission-card p {
+            color: inherit;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        body.dark-mode .stat-number {
+            color: var(--text-lighter);
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        body.dark-mode .stat-label {
+            color: var(--text-light);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background-color: #f5f5f5;
+        }
+
+        body.dark-mode .projects-section {
+            background-color: #1a1a1a;
+        }
+
+        .projects-intro {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .projects-intro {
+            color: var(--text-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .project-card {
+            background-color: var(--card-bg-dark);
+            box-shadow: var(--shadow-dark);
+            color: var(--text-light);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .project-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-content {
+            padding: 40px 30px;
+        }
+
+        .project-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        body.dark-mode .project-title {
+            color: var(--text-lighter);
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        body.dark-mode .project-description {
+            color: var(--text-light);
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        body.dark-mode .project-link {
+            color: var(--text-lighter);
+        }
+
+        .project-link:hover {
+            gap: 12px;
+        }
+
+        /* Initiatives Section */
+        .initiatives-section {
+            background-color: #ffffff;
+        }
+
+        body.dark-mode .initiatives-section {
+            background-color: var(--dark-bg);
+        }
+
+        .initiatives-intro {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .initiatives-intro {
+            color: var(--text-light);
+        }
+
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .initiative-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            color: var(--text-dark);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark-mode .initiative-card {
+            background-color: var(--card-bg-dark);
+            box-shadow: var(--shadow-dark);
+            color: var(--text-light);
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .initiative-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .initiative-content {
+            padding: 40px 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .initiative-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        body.dark-mode .initiative-title {
+            color: var(--text-lighter);
+        }
+
+        .initiative-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        body.dark-mode .initiative-description {
+            color: var(--text-light);
+        }
+
+        .initiative-link {
+            display: inline-block;
+            margin-top: auto;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 25px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+        body.dark-mode .initiative-link {
+            color: var(--text-lighter);
+            border-color: var(--text-lighter);
+        }
+
+        .initiative-link:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        body.dark-mode .initiative-link:hover {
+            background-color: var(--text-lighter);
+            color: var(--off-black);
+        }
+
+        /* Contact Section */
+        .contact-intro {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .contact-intro {
+            color: var(--text-light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        body.dark-mode .contact-form {
+            background-color: var(--card-bg-dark);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        body.dark-mode .form-group label {
+            color: var(--text-lighter);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: var(--off-white);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .form-control {
+            border-color: #555;
+            background-color: #2a2a2a;
+            color: var(--text-light);
+        }
+
+        body.dark-mode .form-control::placeholder {
+            color: #aaa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .form-control:focus {
+            border-color: var(--text-lighter);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: #333;
+        }
+
+        body.dark-mode .submit-btn:hover {
+            background-color: #444;
+        }
+
+        .contact-info {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .contact-info {
+            background-color: var(--card-bg-dark);
+            box-shadow: var(--shadow-dark);
+            color: var(--text-light);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        body.dark-mode .contact-info h3 {
+            color: var(--text-lighter);
+        }
+
+        .contact-details {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .contact-details li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-details i {
+            width: 24px;
+            color: var(--accent);
+        }
+
+        body.dark-mode .contact-details i {
+            color: var(--text-lighter);
+        }
+
+        .contact-details span {
+            color: inherit;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 80px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-lighter);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-description {
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: var(--text-lighter);
+            position: relative;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background-color: var(--text-lighter);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--text-lighter);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #2a2a2a;
+            border-radius: 50%;
+            color: var(--text-lighter);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: #444;
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .copyright p {
+            color: inherit;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 200px 0 80px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-slogan {
+                font-size: 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .mission-cards, .projects-grid, .initiatives-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                gap: 40px;
+            }
+            
+            .initiative-content {
+                padding: 30px 25px;
+            }
+            
+            .initiative-title {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-slogan {
+                font-size: 18px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .contact-form, .contact-info {
+                padding: 30px 20px;
+            }
+            
+            .initiative-content {
+                padding: 25px 20px;
+            }
+            
+            .initiative-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">NOVATION</a>
+            
+            <ul class="nav-links">
+                <li><a href="#accueil" data-i18n="nav.home">Accueil</a></li>
+                <li><a href="#apropos" data-i18n="nav.about">À Propos</a></li>
+                <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
+                <li><a href="#initiatives" data-i18n="nav.initiatives">Initiatives</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            
+            <div class="header-controls">
+                <button class="lang-toggle" id="langToggle">
+                    <i class="fas fa-globe"></i>
+                    <span>FR</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span data-i18n="nav.darkMode">Mode Sombre</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <p class="hero-subtitle" data-i18n="hero.subtitle">La fintech qui révolutionne l'Afrique</p>
+            <h1 class="hero-title">NOVATION</h1>
+            <p class="hero-slogan" data-i18n="hero.slogan">Redessinons l'avenir</p>
+            
+            <div class="hero-buttons">
+                <a href="#projets" class="btn btn-primary" data-i18n="hero.discover">Découvrir nos projets</a>
+                <a href="#contact" class="btn btn-secondary" data-i18n="hero.contact">Contactez-nous</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos">
+        <div class="container">
+            <h2 class="section-title" data-i18n="about.title">À Propos de Novation</h2>
+            
+            <p class="about-intro" data-i18n="about.intro">
+                Novation est une startup fintech pas comme les autres. Nous sommes spécialisés dans les technologies financières de pointe, conçues pour répondre aux défis locaux tout en redéfinissant notre façon de faire les choses. Notre approche unique combine innovation audacieuse et compréhension profonde des besoins du marché africain.
+            </p>
+            
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <h3><i class="fas fa-bullseye"></i> <span data-i18n="about.mission.title">Notre Mission</span></h3>
+                    <p data-i18n="about.mission.text">Développer des solutions financières accessibles et révolutionnaires qui transforment la façon dont l'Afrique interagit avec la finance.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <h3><i class="fas fa-eye"></i> <span data-i18n="about.vision.title">Notre Vision</span></h3>
+                    <p data-i18n="about.vision.text">Devenir le leader africain de la technologie financière, reconnu mondialement pour notre capacité à innover et à créer un impact réel.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <h3><i class="fas fa-star"></i> <span data-i18n="about.values.title">Nos Valeurs</span></h3>
+                    <p data-i18n="about.values.text">Innovation disruptive, Excellence technique, Intégrité absolue et Impact social positif.</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label" data-i18n="about.stats.years">Années d'innovation</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label" data-i18n="about.stats.solutions">Solutions déployées</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label" data-i18n="about.stats.users">Utilisateurs actifs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projets" class="projects-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="projects.title">Nos Projets</h2>
+            <p class="projects-intro" data-i18n="projects.intro">Des solutions de pointe qui redéfinissent les standards de l'industrie financière</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Kouakou AI</h3>
+                        <p class="project-description" data-i18n="projects.kouakou">
+                            Une intelligence artificielle générative en constante évolution. Kouakou AI repousse chaque jour les limites de ce qui est possible, offrant des capacités d'analyse et de génération toujours plus sophistiquées pour accompagner vos décisions.
+                        </p>
+                        <a href="https://kouakou-ai.com" target="_blank" class="project-link">
+                            <span data-i18n="projects.discover">Découvrir</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">HKD Terminal</h3>
+                        <p class="project-description" data-i18n="projects.hkd">
+                            Une solution financière de nouvelle génération qui donne aux professionnels accès à des outils de calcul et d'analyse puissants. Prenez des décisions d'investissement éclairées grâce à une technologie de pointe.
+                        </p>
+                        <a href="https://hkd-terminal.com" target="_blank" class="project-link">
+                            <span data-i18n="projects.discover">Découvrir</span> <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiatives Section -->
+    <section id="initiatives" class="initiatives-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="initiatives.title">Initiatives indépendantes</h2>
+            <p class="initiatives-intro" data-i18n="initiatives.intro">Des projets sociaux et technologiques qui démontrent notre engagement envers l'innovation et le développement de la Côte d'Ivoire</p>
+            
+            <div class="initiatives-grid">
+                <div class="initiative-card">
+                    <div class="initiative-content">
+                        <h3 class="initiative-title" data-i18n="initiatives.electionMap.title">Carte interactive pour les élections en Côte d'Ivoire</h3>
+                        
+                        <p class="initiative-description" data-i18n="initiatives.electionMap.description">
+                            Carte interactive pour suivre les résultats des élections présidentielle et parlementaire 2025 en Côte d'Ivoire. Cette plateforme a été construite pour permettre une visualisation en temps réel des résultats électoraux à travers le pays, permettant aux citoyens, observateurs internationaux et médias de suivre la progression du scrutin avec transparence et précision.
+                        </p>
+                        
+                        <a href="#" class="initiative-link" data-i18n="initiatives.visitPlatform">Visiter la plateforme</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" data-i18n="contact.title">Contactez-nous</h2>
+            <p class="contact-intro" data-i18n="contact.intro">Prêt à transformer votre vision en réalité ? Parlons de votre projet.</p>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="fullName" data-i18n="contact.form.name">Nom complet</label>
+                            <input type="text" id="fullName" class="form-control" placeholder="" data-i18n-placeholder="contact.form.namePlaceholder">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.form.email">Adresse email</label>
+                            <input type="email" id="email" class="form-control" placeholder="" data-i18n-placeholder="contact.form.emailPlaceholder">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-i18n="contact.form.message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="" data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" data-i18n="contact.form.submit">Envoyer le message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 data-i18n="contact.info.title">Informations de contact</h3>
+                    
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="contact.info.address">Abidjan, Côte d'Ivoire</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@novation.ci</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+225 07 00 00 00 00</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span data-i18n="contact.info.hours">Lun - Ven: 8h00 - 18h00</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">NOVATION</a>
+                    <p class="footer-description" data-i18n="footer.description">
+                        Novation est une startup fintech de pointe dédiée à révolutionner la finance en Afrique avec des solutions innovantes depuis la Côte d'Ivoire.
+                    </p>
+                </div>
+                
+                <div class="footer-links-container">
+                    <h4 class="footer-heading" data-i18n="footer.links">Liens rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#accueil" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="#apropos" data-i18n="nav.about">À Propos</a></li>
+                        <li><a href="#projets" data-i18n="nav.projects">Projets</a></li>
+                        <li><a href="#initiatives" data-i18n="nav.initiatives">Initiatives</a></li>
+                        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4 class="footer-heading" data-i18n="footer.follow">Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p data-i18n="footer.copyright">© 2024 Novation. Tous droits réservés.</p>
+                <p data-i18n="footer.madeWith">Fait avec passion en Côte d'Ivoire</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dictionnaire de traduction
+        const translations = {
+            fr: {
+                // Navigation
+                "nav.home": "Accueil",
+                "nav.about": "À Propos",
+                "nav.projects": "Projets",
+                "nav.initiatives": "Initiatives",
+                "nav.contact": "Contact",
+                "nav.darkMode": "Mode Sombre",
+                "nav.lightMode": "Mode Clair",
+                
+                // Hero section
+                "hero.subtitle": "La fintech qui révolutionne l'Afrique",
+                "hero.slogan": "Redessinons l'avenir",
+                "hero.discover": "Découvrir nos projets",
+                "hero.contact": "Contactez-nous",
+                
+                // About section
+                "about.title": "À Propos de Novation",
+                "about.intro": "Novation est une startup fintech pas comme les autres. Nous sommes spécialisés dans les technologies financières de pointe, conçues pour répondre aux défis locaux tout en redéfinissant notre façon de faire les choses. Notre approche unique combine innovation audacieuse et compréhension profonde des besoins du marché africain.",
+                "about.mission.title": "Notre Mission",
+                "about.mission.text": "Développer des solutions financières accessibles et révolutionnaires qui transforment la façon dont l'Afrique interagit avec la finance.",
+                "about.vision.title": "Notre Vision",
+                "about.vision.text": "Devenir le leader africain de la technologie financière, reconnu mondialement pour notre capacité à innover et à créer un impact réel.",
+                "about.values.title": "Nos Valeurs",
+                "about.values.text": "Innovation disruptive, Excellence technique, Intégrité absolue et Impact social positif.",
+                "about.stats.years": "Années d'innovation",
+                "about.stats.solutions": "Solutions déployées",
+                "about.stats.users": "Utilisateurs actifs",
+                
+                // Projects section
+                "projects.title": "Nos Projets",
+                "projects.intro": "Des solutions de pointe qui redéfinissent les standards de l'industrie financière",
+                "projects.kouakou": "Une intelligence artificielle générative en constante évolution. Kouakou AI repousse chaque jour les limites de ce qui est possible, offrant des capacités d'analyse et de génération toujours plus sophistiquées pour accompagner vos décisions.",
+                "projects.hkd": "Une solution financière de nouvelle génération qui donne aux professionnels accès à des outils de calcul et d'analyse puissants. Prenez des décisions d'investissement éclairées grâce à une technologie de pointe.",
+                "projects.discover": "Découvrir",
+                
+                // Initiatives section
+                "initiatives.title": "Initiatives indépendantes",
+                "initiatives.intro": "Des projets sociaux et technologiques qui démontrent notre engagement envers l'innovation et le développement de la Côte d'Ivoire",
+                "initiatives.electionMap.title": "Carte interactive pour les élections en Côte d'Ivoire",
+                "initiatives.electionMap.description": "Carte interactive pour suivre les résultats des élections présidentielle et parlementaire 2025 en Côte d'Ivoire. Cette plateforme a été construite pour permettre une visualisation en temps réel des résultats électoraux à travers le pays, permettant aux citoyens, observateurs internationaux et médias de suivre la progression du scrutin avec transparence et précision.",
+                "initiatives.visitPlatform": "Visiter la plateforme",
+                
+                // Contact section
+                "contact.title": "Contactez-nous",
+                "contact.intro": "Prêt à transformer votre vision en réalité ? Parlons de votre projet.",
+                "contact.info.title": "Informations de contact",
+                "contact.info.address": "Abidjan, Côte d'Ivoire",
+                "contact.info.hours": "Lun - Ven: 8h00 - 18h00",
+                "contact.form.name": "Nom complet",
+                "contact.form.namePlaceholder": "Votre nom",
+                "contact.form.email": "Adresse email",
+                "contact.form.emailPlaceholder": "votre@email.com",
+                "contact.form.message": "Message",
+                "contact.form.messagePlaceholder": "Décrivez votre projet ou posez-nous vos questions...",
+                "contact.form.submit": "Envoyer le message",
+                "contact.success": "Merci {name}! Votre message a été envoyé avec succès. Nous vous répondrons à {email} dans les plus brefs délais.",
+                "contact.error": "Veuillez remplir tous les champs du formulaire.",
+                
+                // Footer
+                "footer.description": "Novation est une startup fintech de pointe dédiée à révolutionner la finance en Afrique avec des solutions innovantes depuis la Côte d'Ivoire.",
+                "footer.links": "Liens rapides",
+                "footer.follow": "Suivez-nous",
+                "footer.copyright": "© 2024 Novation. Tous droits réservés.",
+                "footer.madeWith": "Fait avec passion en Côte d'Ivoire"
+            },
+            en: {
+                // Navigation
+                "nav.home": "Home",
+                "nav.about": "About",
+                "nav.projects": "Projects",
+                "nav.initiatives": "Initiatives",
+                "nav.contact": "Contact",
+                "nav.darkMode": "Dark Mode",
+                "nav.lightMode": "Light Mode",
+                
+                // Hero section
+                "hero.subtitle": "The fintech revolutionizing Africa",
+                "hero.slogan": "Let's reshape the future",
+                "hero.discover": "Discover our projects",
+                "hero.contact": "Contact us",
+                
+                // About section
+                "about.title": "About Novation",
+                "about.intro": "Novation is not like any other fintech startup. We specialize in cutting-edge financial technologies, designed to address local challenges while redefining how we do things. Our unique approach combines bold innovation with a deep understanding of African market needs.",
+                "about.mission.title": "Our Mission",
+                "about.mission.text": "To develop accessible and revolutionary financial solutions that transform how Africa interacts with finance.",
+                "about.vision.title": "Our Vision",
+                "about.vision.text": "To become the African leader in financial technology, globally recognized for our ability to innovate and create real impact.",
+                "about.values.title": "Our Values",
+                "about.values.text": "Disruptive innovation, Technical excellence, Absolute integrity, and Positive social impact.",
+                "about.stats.years": "Years of innovation",
+                "about.stats.solutions": "Solutions deployed",
+                "about.stats.users": "Active users",
+                
+                // Projects section
+                "projects.title": "Our Projects",
+                "projects.intro": "Cutting-edge solutions redefining financial industry standards",
+                "projects.kouakou": "A constantly evolving generative artificial intelligence. Kouakou AI pushes the boundaries of what's possible every day, offering increasingly sophisticated analysis and generation capabilities to support your decisions.",
+                "projects.hkd": "A next-generation financial solution that gives professionals access to powerful calculation and analysis tools. Make informed investment decisions with cutting-edge technology.",
+                "projects.discover": "Discover",
+                
+                // Initiatives section
+                "initiatives.title": "Independent Initiatives",
+                "initiatives.intro": "Social and technological projects demonstrating our commitment to innovation and the development of Ivory Coast",
+                "initiatives.electionMap.title": "Interactive Map for Elections in Ivory Coast",
+                "initiatives.electionMap.description": "Interactive map to track the 2025 presidential and parliamentary election results in Côte d'Ivoire. This platform was built to allow real-time visualization of election results across the country, allowing citizens, international observers, and media to follow the progress of the election with transparency and accuracy.",
+                "initiatives.visitPlatform": "Visit the platform",
+                
+                // Contact section
+                "contact.title": "Contact Us",
+                "contact.intro": "Ready to transform your vision into reality? Let's talk about your project.",
+                "contact.info.title": "Contact Information",
+                "contact.info.address": "Abidjan, Ivory Coast",
+                "contact.info.hours": "Mon - Fri: 8:00 AM - 6:00 PM",
+                "contact.form.name": "Full Name",
+                "contact.form.namePlaceholder": "Your name",
+                "contact.form.email": "Email Address",
+                "contact.form.emailPlaceholder": "your@email.com",
+                "contact.form.message": "Message",
+                "contact.form.messagePlaceholder": "Describe your project or ask us your questions...",
+                "contact.form.submit": "Send Message",
+                "contact.success": "Thank you {name}! Your message has been sent successfully. We will respond to {email} as soon as possible.",
+                "contact.error": "Please fill in all fields of the form.",
+                
+                // Footer
+                "footer.description": "Novation is a cutting-edge fintech startup dedicated to revolutionizing finance in Africa with innovative solutions from Ivory Coast.",
+                "footer.links": "Quick Links",
+                "footer.follow": "Follow Us",
+                "footer.copyright": "© 2024 Novation. All rights reserved.",
+                "footer.madeWith": "Made with passion in Ivory Coast"
+            }
+        };
+
+        // Fonction de traduction
+        function translatePage(language) {
+            // Changer l'attribut lang de l'html
+            document.documentElement.lang = language;
+            
+            // Traduire tous les éléments avec data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[language] && translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+            
+            // Traduire les placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[language] && translations[language][key]) {
+                    element.placeholder = translations[language][key];
+                }
+            });
+            
+            // Mettre à jour le bouton de langue
+            const langButton = document.querySelector('#langToggle span');
+            langButton.textContent = language.toUpperCase();
+            
+            // Sauvegarder la préférence de langue
+            localStorage.setItem('language', language);
+        }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const themeText = themeToggle.querySelector('span');
+        
+        // Check for saved theme or prefer-color-scheme
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark-mode');
+            themeIcon.className = 'fas fa-sun';
+            themeText.setAttribute('data-i18n', 'nav.lightMode');
+        } else {
+            themeIcon.className = 'fas fa-moon';
+            themeText.setAttribute('data-i18n', 'nav.darkMode');
+        }
+        
+        // Appliquer la traduction du mode après le chargement
+        setTimeout(() => {
+            const currentLang = localStorage.getItem('language') || 'fr';
+            translatePage(currentLang);
+        }, 100);
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.className = 'fas fa-sun';
+                themeText.setAttribute('data-i18n', 'nav.lightMode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeText.setAttribute('data-i18n', 'nav.darkMode');
+                localStorage.setItem('theme', 'light');
+            }
+            
+            // Mettre à jour la traduction du texte du bouton
+            const currentLang = localStorage.getItem('language') || 'fr';
+            translatePage(currentLang);
+        });
+        
+        // Language Toggle
+        const langToggle = document.getElementById('langToggle');
+        const langText = langToggle.querySelector('span');
+        
+        // Charger la langue sauvegardée ou utiliser le français par défaut
+        let currentLanguage = localStorage.getItem('language') || 'fr';
+        translatePage(currentLanguage);
+        
+        langToggle.addEventListener('click', () => {
+            // Basculer entre français et anglais
+            currentLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
+            translatePage(currentLanguage);
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                const currentLang = localStorage.getItem('language') || 'fr';
+                alert(translations[currentLang]['contact.error']);
+                return;
+            }
+            
+            // In a real implementation, you would send this data to a server
+            // For now, just show a success message
+            const currentLang = localStorage.getItem('language') || 'fr';
+            const successMessage = translations[currentLang]['contact.success']
+                .replace('{name}', name)
+                .replace('{email}', email);
+            
+            alert(successMessage);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                if (document.body.classList.contains('dark-mode')) {
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+                }
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+                if (document.body.classList.contains('dark-mode')) {
+                    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                }
+            }
+        });
+
+        // Initialiser les placeholders
+        function initPlaceholders() {
+            const currentLang = localStorage.getItem('language') || 'fr';
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.placeholder = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Appeler l'initialisation au chargement
+        document.addEventListener('DOMContentLoaded', initPlaceholders);
+    </script>
+</body>
+</html>
