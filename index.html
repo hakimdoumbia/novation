@@ -636,103 +636,20 @@
 
         .contact-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 60px;
             align-items: start;
-        }
-
-        .contact-form {
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        body.dark-mode .contact-form {
-            background-color: var(--card-bg-dark);
-            box-shadow: var(--shadow-dark);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--accent);
-        }
-
-        body.dark-mode .form-group label {
-            color: var(--text-lighter);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 16px;
-            transition: var(--transition);
-            background-color: var(--off-white);
-            color: var(--text-dark);
-        }
-
-        body.dark-mode .form-control {
-            border-color: #555;
-            background-color: #2a2a2a;
-            color: var(--text-light);
-        }
-
-        body.dark-mode .form-control::placeholder {
-            color: #aaa;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-        }
-
-        body.dark-mode .form-control:focus {
-            border-color: var(--text-lighter);
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover {
-            background-color: #333;
-        }
-
-        body.dark-mode .submit-btn:hover {
-            background-color: #444;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .contact-info {
             background-color: var(--card-bg);
-            padding: 40px;
+            padding: 60px 50px;
             border-radius: 15px;
             box-shadow: var(--shadow);
             color: var(--text-dark);
+            text-align: center;
         }
 
         body.dark-mode .contact-info {
@@ -742,8 +659,8 @@
         }
 
         .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 30px;
+            font-size: 32px;
+            margin-bottom: 40px;
             color: var(--accent);
         }
 
@@ -753,19 +670,22 @@
 
         .contact-details {
             list-style: none;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         .contact-details li {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
+            font-size: 18px;
         }
 
         .contact-details i {
-            width: 24px;
+            width: 30px;
             color: var(--accent);
+            font-size: 22px;
         }
 
         body.dark-mode .contact-details i {
@@ -774,6 +694,20 @@
 
         .contact-details span {
             color: inherit;
+        }
+
+        .contact-details a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        body.dark-mode .contact-details a:hover {
+            color: var(--text-lighter);
         }
 
         /* Footer */
@@ -844,6 +778,7 @@
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            justify-content: center;
         }
 
         .social-link {
@@ -942,6 +877,18 @@
             .initiative-title {
                 font-size: 22px;
             }
+            
+            .contact-info {
+                padding: 40px 30px;
+            }
+            
+            .contact-info h3 {
+                font-size: 28px;
+            }
+            
+            .contact-details li {
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -957,7 +904,7 @@
                 font-size: 36px;
             }
             
-            .contact-form, .contact-info {
+            .contact-info {
                 padding: 30px 20px;
             }
             
@@ -967,6 +914,16 @@
             
             .initiative-title {
                 font-size: 20px;
+            }
+            
+            .contact-info h3 {
+                font-size: 24px;
+            }
+            
+            .contact-details li {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
             }
         }
     </style>
@@ -1082,7 +1039,7 @@
                         <p class="project-description" data-i18n="projects.hkd">
                             Une solution financière de nouvelle génération qui donne aux professionnels accès à des outils de calcul et d'analyse puissants. Prenez des décisions d'investissement éclairées grâce à une technologie de pointe.
                         </p>
-                        <a href="https://https://hkdterminal.onrender.com/" target="_blank" class="project-link">
+                        <a href="https://hkd-terminal.com" target="_blank" class="project-link">
                             <span data-i18n="projects.discover">Découvrir</span> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1117,30 +1074,8 @@
     <section id="contact">
         <div class="container">
             <h2 class="section-title" data-i18n="contact.title">Contactez-nous</h2>
-            <p class="contact-intro" data-i18n="contact.intro">Prêt à transformer votre vision en réalité ? Parlons de votre projet.</p>
             
             <div class="contact-container">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="fullName" data-i18n="contact.form.name">Nom complet</label>
-                            <input type="text" id="fullName" class="form-control" placeholder="" data-i18n-placeholder="contact.form.namePlaceholder">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" data-i18n="contact.form.email">Adresse email</label>
-                            <input type="email" id="email" class="form-control" placeholder="" data-i18n-placeholder="contact.form.emailPlaceholder">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" data-i18n="contact.form.message">Message</label>
-                            <textarea id="message" class="form-control" placeholder="" data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn" data-i18n="contact.form.submit">Envoyer le message</button>
-                    </form>
-                </div>
-                
                 <div class="contact-info">
                     <h3 data-i18n="contact.info.title">Informations de contact</h3>
                     
@@ -1151,11 +1086,11 @@
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
-                            <span>contact@hkdtech.ci</span>
+                            <a href="mailto:contact@hkdtech.ci">contact@hkdtech.ci</a>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
-                            <span>+225 07 00 00 00 00</span>
+                            <a href="tel:+2250700000000">+225 07 00 00 00 00</a>
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
@@ -1262,19 +1197,9 @@
                 
                 // Contact section
                 "contact.title": "Contactez-nous",
-                "contact.intro": "Prêt à transformer votre vision en réalité ? Parlons de votre projet.",
                 "contact.info.title": "Informations de contact",
                 "contact.info.address": "Abidjan, Côte d'Ivoire",
                 "contact.info.hours": "Lun - Ven: 8h00 - 18h00",
-                "contact.form.name": "Nom complet",
-                "contact.form.namePlaceholder": "Votre nom",
-                "contact.form.email": "Adresse email",
-                "contact.form.emailPlaceholder": "votre@email.com",
-                "contact.form.message": "Message",
-                "contact.form.messagePlaceholder": "Décrivez votre projet ou posez-nous vos questions...",
-                "contact.form.submit": "Envoyer le message",
-                "contact.success": "Merci {name}! Votre message a été envoyé avec succès. Nous vous répondrons à {email} dans les plus brefs délais.",
-                "contact.error": "Veuillez remplir tous les champs du formulaire.",
                 
                 // Footer
                 "footer.description": "HKD Technologies est une startup fintech de pointe dédiée à révolutionner la finance en Afrique avec des solutions innovantes depuis la Côte d'Ivoire.",
@@ -1328,19 +1253,9 @@
                 
                 // Contact section
                 "contact.title": "Contact Us",
-                "contact.intro": "Ready to transform your vision into reality? Let's talk about your project.",
                 "contact.info.title": "Contact Information",
                 "contact.info.address": "Abidjan, Ivory Coast",
                 "contact.info.hours": "Mon - Fri: 8:00 AM - 6:00 PM",
-                "contact.form.name": "Full Name",
-                "contact.form.namePlaceholder": "Your name",
-                "contact.form.email": "Email Address",
-                "contact.form.emailPlaceholder": "your@email.com",
-                "contact.form.message": "Message",
-                "contact.form.messagePlaceholder": "Describe your project or ask us your questions...",
-                "contact.form.submit": "Send Message",
-                "contact.success": "Thank you {name}! Your message has been sent successfully. We will respond to {email} as soon as possible.",
-                "contact.error": "Please fill in all fields of the form.",
                 
                 // Footer
                 "footer.description": "HKD Technologies is a cutting-edge fintech startup dedicated to revolutionizing finance in Africa with innovative solutions from Ivory Coast.",
@@ -1361,14 +1276,6 @@
                 const key = element.getAttribute('data-i18n');
                 if (translations[language] && translations[language][key]) {
                     element.textContent = translations[language][key];
-                }
-            });
-            
-            // Traduire les placeholders
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-i18n-placeholder');
-                if (translations[language] && translations[language][key]) {
-                    element.placeholder = translations[language][key];
                 }
             });
             
@@ -1436,37 +1343,6 @@
             translatePage(currentLanguage);
         });
         
-        // Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('fullName').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Basic validation
-            if (!name || !email || !message) {
-                const currentLang = localStorage.getItem('language') || 'fr';
-                alert(translations[currentLang]['contact.error']);
-                return;
-            }
-            
-            // In a real implementation, you would send this data to a server
-            // For now, just show a success message
-            const currentLang = localStorage.getItem('language') || 'fr';
-            const successMessage = translations[currentLang]['contact.success']
-                .replace('{name}', name)
-                .replace('{email}', email);
-            
-            alert(successMessage);
-            
-            // Reset form
-            contactForm.reset();
-        });
-        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1500,20 +1376,6 @@
                 }
             }
         });
-
-        // Initialiser les placeholders
-        function initPlaceholders() {
-            const currentLang = localStorage.getItem('language') || 'fr';
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-i18n-placeholder');
-                if (translations[currentLang] && translations[currentLang][key]) {
-                    element.placeholder = translations[currentLang][key];
-                }
-            });
-        }
-
-        // Appeler l'initialisation au chargement
-        document.addEventListener('DOMContentLoaded', initPlaceholders);
     </script>
 </body>
 </html>
