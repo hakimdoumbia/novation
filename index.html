@@ -474,6 +474,89 @@
             gap: 12px;
         }
 
+        /* App Store Buttons */
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .app-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background-color: #121212;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid #121212;
+        }
+
+        body.dark-mode .app-button {
+            background-color: var(--text-lighter);
+            color: var(--dark-bg);
+            border-color: var(--text-lighter);
+        }
+
+        .app-button:hover {
+            background-color: transparent;
+            color: #121212;
+        }
+
+        body.dark-mode .app-button:hover {
+            background-color: transparent;
+            color: var(--text-lighter);
+        }
+
+        .app-button i {
+            font-size: 24px;
+        }
+
+        .app-button.google-play {
+            background-color: #34a853;
+            border-color: #34a853;
+        }
+
+        .app-button.google-play:hover {
+            color: #34a853;
+        }
+
+        body.dark-mode .app-button.google-play:hover {
+            color: #34a853;
+        }
+
+        /* Features List */
+        .features-list {
+            margin-top: 30px;
+        }
+
+        .features-list ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        body.dark-mode .features-list li:before {
+            color: var(--text-lighter);
+        }
+
         /* Initiatives Section */
         .initiatives-section {
             background-color: #ffffff;
@@ -851,6 +934,14 @@
             .contact-details li {
                 font-size: 16px;
             }
+            
+            .app-buttons {
+                flex-direction: column;
+            }
+            
+            .app-button {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -962,6 +1053,7 @@
             <p class="projects-intro" data-i18n="projects.intro">Des solutions de pointe qui redéfinissent les standards de l'industrie financière</p>
             
             <div class="projects-grid">
+                <!-- CADI original -->
                 <div class="project-card">
                     <div class="project-content">
                         <h3 class="project-title">CADI</h3>
@@ -974,6 +1066,42 @@
                     </div>
                 </div>
                 
+                <!-- CADI Lite -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">CADI Lite</h3>
+                        <p class="project-description">
+                            <strong>CADI Lite, la puissance d'un CRM pour les entrepreneurs à succès.</strong> Version mobile optimisée de CADI, cette application cible principalement les entrepreneurs et les commerçants en Afrique de l'Ouest. CADI Lite est une application React Native prête pour la production, conçue pour les petites entreprises, entrepreneurs et activités informelles en Afrique francophone.
+                        </p>
+                        
+                        <div class="features-list">
+                            <strong>Fonctionnalités principales :</strong>
+                            <ul>
+                                <li>Gestion automatique de la comptabilité SYSCOHADA</li>
+                                <li>Scanner OCR pour les factures</li>
+                                <li>Gestion de stock avancée</li>
+                                <li>Tableaux de bord financiers enrichis</li>
+                                <li>Gestion des fournisseurs</li>
+                                <li>Devis et proformas</li>
+                                <li>Enregistrement des paiements Mobile Money</li>
+                                <li>Mode hors ligne avec synchronisation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="app-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.hkd.cadilite" target="_blank" class="app-button google-play">
+                                <i class="fab fa-google-play"></i>
+                                <span>Google Play</span>
+                            </a>
+                            <a href="https://apps.apple.com/app/cadi-lite/idXXXXXXXXXX" target="_blank" class="app-button">
+                                <i class="fab fa-app-store"></i>
+                                <span>App Store</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HKD Terminal -->
                 <div class="project-card">
                     <div class="project-content">
                         <h3 class="project-title">HKD Terminal</h3>
