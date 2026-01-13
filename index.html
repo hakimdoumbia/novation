@@ -403,7 +403,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-top: 60px;
         }
@@ -434,6 +434,9 @@
 
         .project-content {
             padding: 40px 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-title {
@@ -450,6 +453,7 @@
             color: #666;
             margin-bottom: 30px;
             line-height: 1.7;
+            flex-grow: 1;
         }
 
         body.dark-mode .project-description {
@@ -527,6 +531,12 @@
 
         body.dark-mode .app-button.google-play:hover {
             color: #34a853;
+        }
+
+        /* Full Width Project Card */
+        .full-width-project {
+            grid-column: 1 / -1;
+            margin-top: 40px;
         }
 
         /* Initiatives Section */
@@ -842,6 +852,15 @@
             .hero-title {
                 font-size: 48px;
             }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .full-width-project {
+                grid-column: 1;
+                margin-top: 40px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -913,6 +932,10 @@
             
             .app-button {
                 justify-content: center;
+            }
+            
+            .full-width-project {
+                margin-top: 0;
             }
         }
 
@@ -1059,8 +1082,8 @@
                     </div>
                 </div>
                 
-                <!-- HKD Terminal -->
-                <div class="project-card">
+                <!-- HKD Terminal (pleine largeur en dessous) -->
+                <div class="project-card full-width-project">
                     <div class="project-content">
                         <h3 class="project-title">HKD Terminal</h3>
                         <p class="project-description" data-i18n="projects.hkd">
