@@ -37,6 +37,7 @@
             color: var(--text-dark);
             background-color: var(--off-white);
             transition: var(--transition);
+            overflow-x: hidden;
         }
 
         body.dark-mode {
@@ -856,6 +857,261 @@
             color: inherit;
         }
 
+        /* Privacy Section */
+        .privacy-section {
+            background-color: #f5f5f5;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        body.dark-mode .privacy-section {
+            background-color: #1a1a1a;
+        }
+
+        .privacy-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .privacy-content {
+            color: var(--text-light);
+        }
+
+        .privacy-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        body.dark-mode .privacy-content h3 {
+            color: var(--text-lighter);
+        }
+
+        .privacy-content p {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .privacy-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        body.dark-mode .privacy-btn {
+            background-color: var(--text-lighter);
+            color: var(--dark-bg);
+        }
+
+        .privacy-btn:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .privacy-btn:hover {
+            background-color: white;
+            color: var(--dark-bg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Privacy Policy Modal */
+        .privacy-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease;
+            position: relative;
+        }
+
+        body.dark-mode .modal-content {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 30px 40px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: inherit;
+            z-index: 10;
+        }
+
+        body.dark-mode .modal-header {
+            border-bottom: 1px solid #444;
+        }
+
+        .modal-header h2 {
+            font-size: 28px;
+            color: var(--accent);
+            margin: 0;
+        }
+
+        body.dark-mode .modal-header h2 {
+            color: var(--text-lighter);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #666;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        body.dark-mode .close-btn {
+            color: var(--text-light);
+        }
+
+        .close-btn:hover {
+            color: var(--accent);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark-mode .close-btn:hover {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-body {
+            padding: 30px 40px;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .modal-body {
+            color: var(--text-light);
+        }
+
+        .modal-body h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        body.dark-mode .modal-body h1 {
+            color: var(--text-lighter);
+        }
+
+        .modal-body h2 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: var(--accent);
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        body.dark-mode .modal-body h2 {
+            color: var(--text-lighter);
+            border-bottom: 2px solid #444;
+        }
+
+        .modal-body h3 {
+            font-size: 20px;
+            margin: 30px 0 15px;
+            color: var(--accent);
+        }
+
+        body.dark-mode .modal-body h3 {
+            color: var(--text-lighter);
+        }
+
+        .modal-body p, .modal-body li {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .modal-body ul, .modal-body ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .modal-body li {
+            margin-bottom: 10px;
+        }
+
+        .modal-body strong {
+            color: var(--accent);
+        }
+
+        body.dark-mode .modal-body strong {
+            color: var(--text-lighter);
+        }
+
+        .modal-footer {
+            padding: 20px 40px 30px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            position: sticky;
+            bottom: 0;
+            background-color: inherit;
+        }
+
+        body.dark-mode .modal-footer {
+            border-top: 1px solid #444;
+            color: var(--text-light);
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .contact-container {
@@ -873,6 +1129,17 @@
             .full-width-project {
                 grid-column: 1;
                 margin-top: 40px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+            
+            .modal-header,
+            .modal-body,
+            .modal-footer {
+                padding: 25px 30px;
             }
         }
 
@@ -950,6 +1217,20 @@
             .full-width-project {
                 margin-top: 0;
             }
+            
+            .modal-header,
+            .modal-body,
+            .modal-footer {
+                padding: 20px;
+            }
+            
+            .modal-body h1 {
+                font-size: 24px;
+            }
+            
+            .modal-body h2 {
+                font-size: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -981,6 +1262,11 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 10px;
+            }
+            
+            .privacy-btn {
+                padding: 12px 30px;
+                font-size: 14px;
             }
         }
     </style>
@@ -1172,6 +1458,22 @@
         </div>
     </section>
 
+    <!-- Privacy Policy Section -->
+    <section class="privacy-section">
+        <div class="container">
+            <div class="privacy-content">
+                <h3 data-i18n="privacy.title">Politique de confidentialité</h3>
+                <p data-i18n="privacy.description">
+                    HKD Technologies s'engage à protéger vos données personnelles. Notre politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos informations.
+                </p>
+                <button class="privacy-btn" id="privacyBtn">
+                    <i class="fas fa-file-contract"></i>
+                    <span data-i18n="privacy.readPolicy">Lire notre politique de confidentialité</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1211,6 +1513,269 @@
             </div>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div class="privacy-modal" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>POLITIQUE DE CONFIDENTIALITÉ</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h1>POLITIQUE DE CONFIDENTIALITÉ – HKD TECHNOLOGIES</h1>
+
+                <p><strong>Produits concernés :</strong></p>
+                <ul>
+                    <li>CADI (Application de gestion comptable complète)</li>
+                    <li>CADI Lite (Version allégée de gestion comptable)</li>
+                    <li>HKD Terminal (Plateforme d'analyse, de données et d'aide à la décision)</li>
+                    <li>Kouakou IA (Assistant d'intelligence artificielle)</li>
+                </ul>
+
+                <p><strong>Éditeur :</strong> HKD Technologies<br>
+                <strong>Territoire d'application :</strong> République de Côte d'Ivoire<br>
+                <strong>Dernière mise à jour :</strong> Janvier 2026</p>
+
+                <hr>
+
+                <h2>1. PRÉAMBULE</h2>
+
+                <p>La présente Politique de confidentialité (ci-après la « Politique ») a pour objet d'informer les utilisateurs, clients et partenaires des solutions logicielles éditées par <strong>HKD Technologies</strong> des modalités de collecte, d'utilisation, de traitement, de conservation, de sécurisation et de partage des données à caractère personnel et professionnelles.</p>
+
+                <p>Cette Politique s'applique à l'ensemble de l'écosystème logiciel HKD Technologies, incluant notamment <strong>CADI, CADI Lite, HKD Terminal et Kouakou IA</strong>.</p>
+
+                <p>HKD Technologies place la protection des données, la confidentialité, la cybersécurité et la conformité réglementaire au cœur de sa stratégie technologique et s'inspire, à ce titre, des meilleures pratiques des grands groupes technologiques internationaux.</p>
+
+                <p>La présente Politique est établie conformément aux lois et règlements en vigueur en République de Côte d'Ivoire, notamment :</p>
+                <ul>
+                    <li>la <strong>Loi n°2013-450 du 19 juin 2013 relative à la protection des données à caractère personnel</strong> ;</li>
+                    <li>les textes et décisions de l'<strong>ARTCI</strong> ;</li>
+                    <li>les normes <strong>OHADA</strong> applicables en matière comptable et de conservation des documents ;</li>
+                    <li>toute autre réglementation ivoirienne applicable aux services numériques, à la cybersécurité et aux systèmes d'information.</li>
+                </ul>
+
+                <h2>2. DÉFINITIONS</h2>
+
+                <p>Aux fins de la présente Politique, les termes ci-après ont la signification suivante :</p>
+
+                <ul>
+                    <li><strong>HKD Technologies</strong> : société éditrice des solutions logicielles concernées.</li>
+                    <li><strong>Produits / Solutions</strong> : CADI, CADI Lite, HKD Terminal et Kouakou IA.</li>
+                    <li><strong>Utilisateur</strong> : toute personne physique utilisant l'un des Produits.</li>
+                    <li><strong>Client</strong> : toute personne physique ou morale ayant souscrit à un abonnement, une licence ou un contrat.</li>
+                    <li><strong>Données à caractère personnel</strong> : toute information permettant d'identifier une personne physique.</li>
+                    <li><strong>Données professionnelles</strong> : données comptables, financières, fiscales, analytiques ou métiers.</li>
+                    <li><strong>Responsable du traitement</strong> : HKD Technologies.</li>
+                    <li><strong>Sous-traitant</strong> : toute entité traitant des données pour le compte de HKD Technologies.</li>
+                </ul>
+
+                <h2>3. IDENTITÉ DU RESPONSABLE DU TRAITEMENT</h2>
+
+                <p><strong>HKD Technologies</strong><br>
+                Société de droit ivoirien<br>
+                Siège social : Côte d'Ivoire<br>
+                Email : <a href="mailto:contact@hkd-technologies.com">contact@hkd-technologies.com</a></p>
+
+                <p>HKD Technologies détermine les finalités et les moyens des traitements mis en œuvre dans ses Produits.</p>
+
+                <h2>4. CHAMP D'APPLICATION</h2>
+
+                <p>La présente Politique s'applique :</p>
+                <ul>
+                    <li>à tous les Utilisateurs des Produits HKD Technologies ;</li>
+                    <li>à toutes les plateformes (web, desktop, mobile, API) ;</li>
+                    <li>à l'ensemble des fonctionnalités, modules, intégrations et services associés.</li>
+                </ul>
+
+                <h2>5. PRINCIPES FONDAMENTAUX DE TRAITEMENT</h2>
+
+                <p>HKD Technologies respecte les principes suivants :</p>
+                <ol>
+                    <li>Licéité, loyauté et transparence ;</li>
+                    <li>Finalités déterminées, explicites et légitimes ;</li>
+                    <li>Minimisation des données collectées ;</li>
+                    <li>Exactitude et mise à jour ;</li>
+                    <li>Limitation de la durée de conservation ;</li>
+                    <li>Confidentialité, intégrité et sécurité ;</li>
+                    <li>Responsabilité et traçabilité.</li>
+                </ol>
+
+                <h2>6. CATÉGORIES DE DONNÉES COLLECTÉES</h2>
+
+                <h3>6.1 Données d'identification</h3>
+                <ul>
+                    <li>Nom et prénom ;</li>
+                    <li>Adresse email professionnelle ;</li>
+                    <li>Numéro de téléphone ;</li>
+                    <li>Identifiants et rôles utilisateurs ;</li>
+                    <li>Organisation ou entreprise associée.</li>
+                </ul>
+
+                <h3>6.2 Données comptables et financières (CADI & CADI Lite)</h3>
+                <ul>
+                    <li>Journaux comptables OHADA ;</li>
+                    <li>Factures, écritures, états financiers ;</li>
+                    <li>Données fiscales et sociales ;</li>
+                    <li>Informations de paie et charges.</li>
+                </ul>
+
+                <h3>6.3 Données analytiques et décisionnelles (HKD Terminal)</h3>
+                <ul>
+                    <li>Données financières agrégées ;</li>
+                    <li>Indicateurs, tableaux de bord ;</li>
+                    <li>Données de marché, modèles analytiques ;</li>
+                    <li>Résultats de calculs et simulations.</li>
+                </ul>
+
+                <h3>6.4 Données issues de l'IA (Kouakou IA)</h3>
+                <ul>
+                    <li>Requêtes utilisateurs ;</li>
+                    <li>Données contextuelles fournies volontairement ;</li>
+                    <li>Historique de conversations professionnelles ;</li>
+                    <li>Résultats générés par l'IA.</li>
+                </ul>
+
+                <h3>6.5 Données techniques</h3>
+                <ul>
+                    <li>Adresse IP ;</li>
+                    <li>Logs et journaux système ;</li>
+                    <li>Type d'appareil et navigateur ;</li>
+                    <li>Données de performance et de sécurité.</li>
+                </ul>
+
+                <h2>7. FINALITÉS DU TRAITEMENT</h2>
+
+                <p>Les données sont traitées pour :</p>
+                <ul>
+                    <li>la fourniture et l'exploitation des Produits ;</li>
+                    <li>la gestion des comptes et des accès ;</li>
+                    <li>la conformité comptable, fiscale et réglementaire ;</li>
+                    <li>l'assistance et le support client ;</li>
+                    <li>l'amélioration continue des fonctionnalités ;</li>
+                    <li>la sécurité, la prévention des fraudes et incidents ;</li>
+                    <li>le respect des obligations légales.</li>
+                </ul>
+
+                <h2>8. BASES LÉGALES</h2>
+
+                <p>Les traitements reposent sur :</p>
+                <ul>
+                    <li>l'exécution contractuelle ;</li>
+                    <li>le consentement lorsque requis ;</li>
+                    <li>les obligations légales et réglementaires ;</li>
+                    <li>l'intérêt légitime de HKD Technologies.</li>
+                </ul>
+
+                <h2>9. DESTINATAIRES DES DONNÉES</h2>
+
+                <p>Les données peuvent être accessibles à :</p>
+                <ul>
+                    <li>le personnel habilité de HKD Technologies ;</li>
+                    <li>les sous-traitants techniques et partenaires ;</li>
+                    <li>les autorités compétentes sur réquisition légale.</li>
+                </ul>
+
+                <p>Aucune donnée n'est commercialisée.</p>
+
+                <h2>10. TRANSFERT DES DONNÉES</h2>
+
+                <p>Les données sont hébergées prioritairement en Côte d'Ivoire ou dans des juridictions offrant un niveau de protection adéquat.</p>
+                <p>Tout transfert international est strictement encadré.</p>
+
+                <h2>11. DURÉE DE CONSERVATION</h2>
+
+                <p>Les données sont conservées :</p>
+                <ul>
+                    <li>pendant la relation contractuelle ;</li>
+                    <li>conformément aux obligations OHADA et fiscales ;</li>
+                    <li>puis supprimées ou anonymisées.</li>
+                </ul>
+
+                <h2>12. SÉCURITÉ DES DONNÉES</h2>
+
+                <p>HKD Technologies met en œuvre des mesures alignées sur les standards internationaux :</p>
+                <ul>
+                    <li>chiffrement ;</li>
+                    <li>contrôle d'accès et authentification ;</li>
+                    <li>sauvegardes et plans de reprise ;</li>
+                    <li>audits et surveillance continue.</li>
+                </ul>
+
+                <h2>13. DROITS DES UTILISATEURS</h2>
+
+                <p>Conformément au droit ivoirien, les Utilisateurs disposent des droits :</p>
+                <ul>
+                    <li>d'accès ;</li>
+                    <li>de rectification ;</li>
+                    <li>d'opposition ;</li>
+                    <li>d'effacement ;</li>
+                    <li>de limitation.</li>
+                </ul>
+
+                <p>Les demandes peuvent être adressées à : <a href="mailto:privacy@hkd-technologies.com">privacy@hkd-technologies.com</a>.</p>
+
+                <h2>14. SPÉCIFICITÉS LIÉES À L'INTELLIGENCE ARTIFICIELLE</h2>
+
+                <p>Les traitements effectués par <strong>Kouakou IA</strong> :</p>
+                <ul>
+                    <li>ne visent pas à produire des décisions juridiques ou financières automatisées contraignantes ;</li>
+                    <li>reposent sur des modèles statistiques et probabilistes ;</li>
+                    <li>nécessitent une validation humaine pour toute décision critique.</li>
+                </ul>
+
+                <h2>15. COOKIES ET TRACEURS</h2>
+
+                <p>Les Produits peuvent utiliser des cookies strictement nécessaires au fonctionnement, à la sécurité et à l'optimisation des services.</p>
+
+                <h2>16. RESPONSABILITÉS DE L'UTILISATEUR</h2>
+
+                <p>L'Utilisateur est responsable :</p>
+                <ul>
+                    <li>de la confidentialité de ses identifiants ;</li>
+                    <li>de la légalité des données traitées ;</li>
+                    <li>du respect des obligations applicables à son activité.</li>
+                </ul>
+
+                <h2>17. SOUS-TRAITANCE</h2>
+
+                <p>Tout sous-traitant est contractuellement soumis à :</p>
+                <ul>
+                    <li>des obligations strictes de confidentialité ;</li>
+                    <li>des exigences de sécurité ;</li>
+                    <li>la conformité au droit ivoirien.</li>
+                </ul>
+
+                <h2>18. VIOLATION DE DONNÉES</h2>
+
+                <p>En cas d'incident de sécurité, HKD Technologies :</p>
+                <ul>
+                    <li>met en œuvre les mesures correctives ;</li>
+                    <li>notifie l'ARTCI lorsque requis ;</li>
+                    <li>informe les personnes concernées si nécessaire.</li>
+                </ul>
+
+                <h2>19. MODIFICATION DE LA POLITIQUE</h2>
+
+                <p>HKD Technologies se réserve le droit de modifier la présente Politique. Toute modification substantielle sera notifiée aux Utilisateurs.</p>
+
+                <h2>20. DROIT APPLICABLE ET JURIDICTION</h2>
+
+                <p>La présente Politique est régie par le droit ivoirien. Tout litige relève de la compétence exclusive des juridictions ivoiriennes.</p>
+
+                <h2>21. CONTACT</h2>
+
+                <p>Pour toute question relative à la protection des données :</p>
+                <p><strong>HKD Technologies</strong><br>
+                Email : <a href="mailto:privacy@hkd-technologies.com">privacy@hkd-technologies.com</a></p>
+
+                <hr>
+                <p><em>Cette Politique de confidentialité constitue un document juridique de référence pour l'ensemble des Produits HKD Technologies, conçu selon les standards internationaux et adapté au cadre réglementaire ivoirien.</em></p>
+            </div>
+            <div class="modal-footer">
+                <p>HKD Technologies – Janvier 2026</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Dictionnaire de traduction mis à jour
@@ -1261,6 +1826,11 @@
                 "contact.info.title": "Informations de contact",
                 "contact.info.address": "Abidjan, Côte d'Ivoire",
                 "contact.info.hours": "Lun - Ven: 8h00 - 18h00",
+                
+                // Privacy section
+                "privacy.title": "Politique de confidentialité",
+                "privacy.description": "HKD Technologies s'engage à protéger vos données personnelles. Notre politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos informations.",
+                "privacy.readPolicy": "Lire notre politique de confidentialité",
                 
                 // Footer
                 "footer.description": "HKD Technologies est une startup fintech de pointe dédiée à révolutionner la finance en Afrique avec des solutions innovantes depuis la Côte d'Ivoire.",
@@ -1315,6 +1885,11 @@
                 "contact.info.title": "Contact Information",
                 "contact.info.address": "Abidjan, Ivory Coast",
                 "contact.info.hours": "Mon - Fri: 8:00 AM - 6:00 PM",
+                
+                // Privacy section
+                "privacy.title": "Privacy Policy",
+                "privacy.description": "HKD Technologies is committed to protecting your personal data. Our privacy policy describes how we collect, use and protect your information.",
+                "privacy.readPolicy": "Read our privacy policy",
                 
                 // Footer
                 "footer.description": "HKD Technologies is a cutting-edge fintech startup dedicated to revolutionizing finance in Africa with innovative solutions from Ivory Coast.",
@@ -1433,6 +2008,39 @@
                 if (document.body.classList.contains('dark-mode')) {
                     header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
                 }
+            }
+        });
+        
+        // Privacy Policy Modal
+        const privacyModal = document.getElementById('privacyModal');
+        const privacyBtn = document.getElementById('privacyBtn');
+        const closeModal = document.getElementById('closeModal');
+        
+        // Ouvrir le modal
+        privacyBtn.addEventListener('click', () => {
+            privacyModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Empêche le défilement en arrière-plan
+        });
+        
+        // Fermer le modal
+        closeModal.addEventListener('click', () => {
+            privacyModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Fermer le modal en cliquant en dehors
+        window.addEventListener('click', (event) => {
+            if (event.target === privacyModal) {
+                privacyModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Fermer le modal avec la touche Échap
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && privacyModal.style.display === 'block') {
+                privacyModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
         });
     </script>
